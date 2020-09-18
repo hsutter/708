@@ -64,18 +64,18 @@ void compare(auto name, auto f1, auto f2) {
 
 int main() {
     compare("lvalue + lvalue",
-            []{ String x, y;   new_in(x, y);            }, 
-            []{ String x, y;   old_in(x, y);            });
+            []{ String x, y;   old_in(x, y);            }, 
+            []{ String x, y;   new_in(x, y);            });
 
     compare("lvalue + rvalue",
-            []{ String x;      new_in(x, String());     }, 
-            []{ String x;      old_in(x, String());     });
+            []{ String x;      old_in(x, String());     }, 
+            []{ String x;      new_in(x, String());     });
 
     compare("rvalue + lvalue",
-            []{ String x;      new_in(String(), x);     }, 
-            []{ String x;      old_in(String(), x);     });
+            []{ String x;      old_in(String(), x);     }, 
+            []{ String x;      new_in(String(), x);     });
 
     compare("rvalue + rvalue",
-            []{                new_in(String(), String()); }, 
-            []{                old_in(String(), String()); });
+            []{                old_in(String(), String()); }, 
+            []{                new_in(String(), String()); });
 }

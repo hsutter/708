@@ -77,18 +77,18 @@ void compare(auto name, auto f1, auto f2) {
 
 int main() {
     compare("trivial lvalue",
-            []{ int x = 0;  new_in(x);            }, 
-            []{ int x = 0;  old_in(x);            });
+            []{ int x = 0;  old_in(x);            }, 
+            []{ int x = 0;  new_in(x);            });
 
     compare("nontrivial lvalue",
-            []{ String x;   new_in(x);            }, 
-            []{ String x;   old_in(x);            });
+            []{ String x;   old_in(x);            }, 
+            []{ String x;   new_in(x);            });
 
     compare("nontrivial xvalue",
-            []{ String x;   new_in(std::move(x)); }, 
-            []{ String x;   old_in(std::move(x)); });
+            []{ String x;   old_in(std::move(x)); }, 
+            []{ String x;   new_in(std::move(x)); });
 
     compare("nontrivial prvalue",
-            []{             new_in(String());     }, 
-            []{             old_in(String());     });
+            []{             old_in(String());     }, 
+            []{             new_in(String());     });
 }
