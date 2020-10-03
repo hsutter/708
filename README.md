@@ -4,4 +4,4 @@ This repo contains a drafts of my ISO C++ paper #708, and related material inclu
 
 An in-progress prototype implementation is available here:
 
-    [https://cppx.godbolt.org](https://cppx.godbolt.org/z/hz6hMj)  // showing the two-parameter "in" demo
+[https://cppx.godbolt.org](https://cppx.godbolt.org/z/hz6hMj)  // showing the two-parameter "in" demo
