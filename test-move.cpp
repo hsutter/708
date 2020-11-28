@@ -11,7 +11,7 @@ int main() {
     hst::tester test("move parameter cases");
 
     test.run(
-        "move test", 
+        "xvalue test", 
         []{
             X x;
             f_new(std::move(x));
@@ -19,6 +19,15 @@ int main() {
         []{
             X x;
             f_old(std::move(x));
+        });
+
+    test.run(
+        "prvalue test", 
+        []{
+            f_new(X());
+        }, 
+        []{
+            f_old(X());
         });
 
     std::cout << test.summary();
